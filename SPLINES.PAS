@@ -1,3 +1,5 @@
+{ SPLINES }
+
 program SPLINES (input,output);
 const n=6;      {n es el nombre de subintervals}
 var
@@ -23,7 +25,7 @@ begin
 end;
 
 begin
-{Introducci¢ de les dades}
+{Introducciï¿½ de les dades}
 t[1]:=-1;          t[2]:=-0.96;         t[3]:=-0.86;
 t[4]:=-0.79;        t[5]:=0.22;          t[6]:=0.5;
 t[7]:=0.930;
@@ -118,13 +120,13 @@ writeln('M[',1,']= ',M[1]);
 read(c);
 read(c);
 
-{Algorisme de comprovaci¢ i calcul del residu
-per comprobaci¢ de la calitat de la soluci¢}
+{Algorisme de comprovaciï¿½ i calcul del residu
+per comprobaciï¿½ de la calitat de la soluciï¿½}
 for i:=1 to n-1 do begin
     suma2:=0;
     for j:=1 to n-1 do suma2:=suma2+A[i,j]*M[j+1];                  {(11)}
     write('B[',i,']= ',B[i]:1:5);          {Treu per pantalla el B(i)}
-    write(' ~ ',suma2:1:5);                 {Treu per pantalla el Aúx*}
+    write(' ~ ',suma2:1:5);                 {Treu per pantalla el Aï¿½x*}
     writeln('    Residu= ',suma2-B[i]);  {Treu per pantalla el residu}
 end;
 read(c);
@@ -146,7 +148,7 @@ end;
 read(c);
 read(c);
 
-{Comprovaci¢}
+{Comprovaciï¿½}
 writeln('  t   Mesura    Calculat amb polinomi');
 for k:=1 to 7 do begin
     if t[k]>0 then write(' ');

@@ -1,3 +1,5 @@
+{ Newton Method }
+
 program NEWTON(input,output);
 const n=6;
 var
@@ -79,7 +81,7 @@ writeln('FKK6= ',FKK6);
 read(c);
 read(c);
 
-{Comprobaci¢}
+{Comprobaciï¿½}
 writeln('  t    Mesura        Calculat amb polinomi');
 for k:=1 to 7 do begin
     if t[k]>0 then write(' ');

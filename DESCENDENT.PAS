@@ -1,3 +1,5 @@
+{ PRG2 DESCENDENT}
+
 program DESCENDENT(input, output);
 var
    n:integer;

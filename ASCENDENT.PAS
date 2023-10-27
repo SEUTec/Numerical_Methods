@@ -1,3 +1,5 @@
+{ PRG1 Ascendent }
+
 program ASCENDENT(input, output);
 var
    n:integer;

@@ -1,5 +1,7 @@
+{ Lagrance Method }
+
 program LAGRANGE(input,output);
-const a=0;              {[a,b] interval d'integraci¢}
+const a=0;              {[a,b] interval d'integraciï¿½}
       b=0.5;
       NMAX=500;             {Nombre de subintervals N>270 resultats iguals}
       Per=0.5;          {Periode T=1/2}

@@ -1,3 +1,5 @@
+{ Lagrange Method }
+
 program LAGRANGE(input,output);
 
 var
@@ -30,7 +32,7 @@ y[1]:=-1;          y[2]:=-0.151;        y[3]:=0.894;
 y[4]:=0.986;       y[5]:=0.895;         y[6]:=0.5;
 y[7]:=-0.306;
 
-{Comprovaci¢}
+{Comprovaciï¿½}
 writeln(' t  Mesura   Calcul amb polinomi de Lagrange.');
 for k:=1 to 7 do begin
     if t[k]>0 then write(' ');

@@ -1,6 +1,8 @@
+{ Practica }
+
 program PRACTICA(input, output);
 type  Fitxa=record                              {Estructura per guardar les dades}
-                                                {corresponents a cada kil•metre  }
+                                                {corresponents a cada kilï¿½metre  }
                                                 {del recorregut}
 	altura: integer;                        {Un enter per l'altura}
 	etiqueta: array[1..15] of char;         {Un array de 15 caracters per la etiqueta}
@@ -10,7 +12,7 @@ end;
 type  ArrayFitx=array[1..99] of Fitxa;
                              {Array per enmagatzemar les dades de tot el recorregut}
 var
-	opcio,res: char;        {Variable de selecci¢ del menu principal}
+	opcio,res: char;        {Variable de selecciï¿½ del menu principal}
               {Variable auxiliar utilitzada per vuidar el bauffer de teclat}
 	Dades: ArrayFitx;       {Dades del recorregut}
 
@@ -22,12 +24,12 @@ var
         Nomfitxer:string[10];   {Turbo Pascal}
 {	Nomfitxer:packed array[1..10] of char;}
 	car: char;
-	kmant,km: integer;         {Kil•metre anterior}
-	dif: integer;           {diferŠncia entre kil•metres}
+	kmant,km: integer;         {Kilï¿½metre anterior}
+	dif: integer;           {diferï¿½ncia entre kilï¿½metres}
 	inc: real;
 	Incidencia: array[1..8] of char;
 	i,j: integer;
-	FiLlegir: boolean;      {Variable per controla la finalitzaci¢ de la lectura del fitxer}
+	FiLlegir: boolean;      {Variable per controla la finalitzaciï¿½ de la lectura del fitxer}
 
 begin
 	FiLlegir:=FALSE;
@@ -58,7 +60,7 @@ begin
 {i els converteix a enter}	end
 
 {Si llegeix un caracter que}	else begin
-{no ‚s un digit indica error}		writeln('');
+{no ï¿½s un digit indica error}		writeln('');
 {de lectura i activa la}		writeln(' *  ERROR EN LECTURA DE KILOMETRES * ');
 {variable FiLlegir per}					writeln('');
 {aturar la lectura del fitxer}	FiLlegir:=TRUE;
@@ -72,8 +74,8 @@ begin
 			read(fitxer, car);
 
 {Si el valor llegit}	if (km>99) OR (car='*') AND not FiLlegir then begin
-{per km ‚s superior}	writeln(' ');
-{al valor m…xim (99)}	writeln(' * ERROR EN LA LECTURA DE KILOMETRES *');
+{per km ï¿½s superior}	writeln(' ');
+{al valor mï¿½xim (99)}	writeln(' * ERROR EN LA LECTURA DE KILOMETRES *');
 {indica error i fi-}	writeln(' Aquest programa esta limitat a 99 km.');
 {nalitza la lectura}	writeln(' ');
 				FiLlegir:=TRUE;
@@ -86,7 +88,7 @@ begin
 {i els converteix a enter}			Dades[km].altura:=Dades[km].altura + ORD(car) - ORD('0');
 					end
 {Si llegeix un caracter que}		else begin
-{no ‚s digit indica error i}			writeln('');
+{no ï¿½s digit indica error i}			writeln('');
 {finalitza la lectura}	  	                writeln(' * ERROR EN LA LECTURA DE LA ALTURA * ');
 						writeln('');
 						FiLlegir:=TRUE;
@@ -95,8 +97,8 @@ begin
 				until (car='*') OR eoln(fitxer) OR eof(fitxer) OR (i=4);
 				write(' ');
 
-{Si el valir llegit ‚s}		if(Dades[km].altura > 9999) then begin
-{m‚s gran que el m…xim}			writeln(' ');
+{Si el valir llegit ï¿½s}		if(Dades[km].altura > 9999) then begin
+{mï¿½s gran que el mï¿½xim}			writeln(' ');
 {indica error i finalitza}		writeln(' * ERROR EN LA LECTURA DE LA ALTURA * ');
 {la lectura}				writeln(' La altura maxima es de 9999');
 					writeln(' ');
@@ -106,7 +108,7 @@ begin
 {Si no hi ha error}	else if (not eoln(fitxer)) then begin
 {continua llegint}	       read(fitxer, car);
 
-{Si despr‚s de l'altura no es}	       if (car<>'*') then begin
+{Si desprï¿½s de l'altura no es}	       if (car<>'*') then begin
 {troba un altre * llegeix}         	        Dades[km].etiqueta[1]:=car;
 {etiquera caracter a caracter}		        i:=1;
 						repeat
@@ -121,12 +123,12 @@ begin
 				if not eoln(fitxer) and not eof(fitxer) then begin
 					i:=1;
 
-{Inici del bucle per llegir incidŠncies}repeat
-{inicialitza l'array incidŠncia}                for j:=1 to 8 do incidencia[j]:=' ';
+{Inici del bucle per llegir incidï¿½ncies}repeat
+{inicialitza l'array incidï¿½ncia}                for j:=1 to 8 do incidencia[j]:=' ';
                                                 j:=1;
 
 {Lectura dels caracter corresponents}		repeat
-{a una incidŠncia}                              	read(fitxer,car);
+{a una incidï¿½ncia}                              	read(fitxer,car);
 							incidencia[j]:=car;
 							j:=j+1;
 						until (car='*') OR eoln(fitxer) OR eof(fitxer) OR (j=8);
@@ -136,14 +138,14 @@ begin
 {Si els caracters llegits}			if (incidencia[1]='I') AND (incidencia[2]='N')
 {corresponen amb I,N,I,C,I}			AND (incidencia[3]='I') AND (incidencia[4]='C')
 {activa el boolea que indica}			AND (incidencia[5]='I') AND (incidencia[6]=' ') then begin
-{que el km actual ‚s INICI}                     	Dades[km].Inici:=TRUE;
+{que el km actual ï¿½s INICI}                     	Dades[km].Inici:=TRUE;
 							write(' Inici');
 						end
 
 {Si els caracters llegits}			else if(incidencia[1]='F') AND (incidencia[2]='I')
 {corresponen amb F,I,N,A,L}			AND (incidencia[3]='N') AND (incidencia[4]='A')
 {activa el boolea que indica}			AND (incidencia[5]='L') AND (incidencia[6]=' ') then begin
-{que el km actual ‚s FINAL}			Dades[km].final:=TRUE;
+{que el km actual ï¿½s FINAL}			Dades[km].final:=TRUE;
 							write(' Final');
 						end
 
@@ -176,7 +178,7 @@ begin
 							write(' Aigua');
 						end
 
-{Si la incidŠncia llegida}			else begin
+{Si la incidï¿½ncia llegida}			else begin
 {no correspon amb cap de}				writeln('');
 {les reconegudes treu per}				writeln(' * ERROR EN LES DADES DEL FITXER *');
 {pantalla el missatge d'error}				writeln(' * INICIDENCIA NO DEFINIDA *');
@@ -184,7 +186,7 @@ begin
 							FiLlegir:=TRUE;
 						end;
 
-{Acaba de llegir incidŠncies si}						i:=i+1;
+{Acaba de llegir incidï¿½ncies si}						i:=i+1;
 {s'han llegir les 8 si s'acaba}			until eoln(fitxer) OR eof(fitxer) OR (i=7);
 {el fitxer o la lines}			readln(fitxer);
 					writeln(' ');
@@ -196,7 +198,7 @@ begin
 
 
 {Si el km llegit anterior-}	if (kmant<>(km-1)) AND (km>1) then begin
-{ment no ‚s l'inmediatament}    	dif:=km - kmant;
+{ment no ï¿½s l'inmediatament}    	dif:=km - kmant;
 {enterior al km actual, hi}	        inc:=(Dades[km].altura - Dades[kmant].altura) / dif;
 {ha que calcular la altura}			for i:=1 to dif-1 do begin
 {del km intermitjos}						Dades[kmant+i].altura:=trunc(Dades[kmant].altura + (inc * i));
@@ -243,7 +245,7 @@ end;
 
 
 procedure  LLEGIREG;            {Procediment encarregar de llegir fitxers}
-                                {binaris colúlocant les dades a la mem•ria}
+                                {binaris colï¿½locant les dades a la memï¿½ria}
 var
 	fitxer:file of Fitxa;
 	i: integer;
@@ -273,7 +275,7 @@ begin
 end;
 
 
-procedure ESTADIS;      {Procediment de calcul i presentaci¢ de dades estad¡stiques}
+procedure ESTADIS;      {Procediment de calcul i presentaciï¿½ de dades estadï¿½stiques}
 var
 	altmax, altmin, de
         snivell, km: integer;
@@ -285,7 +287,7 @@ begin
 
 
 	repeat  {bucle que recorre l'array Dades buscant l'altura
-                m…xima, m¡nima i calculant el desnivell}
+                mï¿½xima, mï¿½nima i calculant el desnivell}
 		km:=km+1;
 		if(altmin > Dades[km].altura) then altmin:=Dades[km].altura;
 		if(altmax < Dades[km].altura) then altmax:=Dades[km].altura;
@@ -305,8 +307,8 @@ end;
 
 procedure TREULLISTA(pagina:integer);   {Aquest procediment treu per patalla
                                         una llista amb les dades corresponents
-                                        als 15 kil•metres de la p…gina indicada
-                                        o fins que troba l'£ltim kil•metre del
+                                        als 15 kilï¿½metres de la pï¿½gina indicada
+                                        o fins que troba l'ï¿½ltim kilï¿½metre del
                                         recorregut}
 var
 	nsimbols, valsimbol: real;      {nombre simbols i valor del simbol}
@@ -319,13 +321,13 @@ begin
 	i:=primer;
 
 	repeat          {bucle que recorre la llista buscant l'altura
-                        m…xima, m¡nima}
+                        mï¿½xima, mï¿½nima}
 		i:=i+1;
 		if(altmin > Dades[i].altura) then altmin:=Dades[i].altura;
 		if(altmax < Dades[i].altura) then altmax:=Dades[i].altura;
 	until (i=primer+15) OR Dades[i].final;
 
-	ultim:=i;      {£ltim km a presentar en pantalla}
+	ultim:=i;      {ï¿½ltim km a presentar en pantalla}
 	valsimbol:=0;
 	if(altmin<>altmax) then valsimbol:=46/(altmax-altmin);
 	i:=primer;
@@ -350,7 +352,7 @@ begin
 
 	until (i=primer+15) OR (i=ultim);
 
-	writeln('');                     {Treu per pantalla el rang de la p…gina actual}
+	writeln('');                     {Treu per pantalla el rang de la pï¿½gina actual}
 	write('Escala de ', altmin:5);
 	write(' a ', altmax:5);
 	writeln(' metres.');
@@ -387,7 +389,7 @@ begin
 	writeln('Q.-Sortir      S.-Pag.Seguent      A.-Pag.Anterior');
 	repeat
 		read(opcio);
-		if(opcio='A') OR (opcio='a') AND (pagina > 0) then begin {Si la p…gina actual>0 hi ha p…gina anterior, sino no}
+		if(opcio='A') OR (opcio='a') AND (pagina > 0) then begin {Si la pï¿½gina actual>0 hi ha pï¿½gina anterior, sino no}
 			pagina:=pagina-1;
 			writeln('');
 			if (pagina=0) then writeln('*INICI SORTIDA*');
@@ -404,11 +406,11 @@ begin
 			writeln('KM  POBLACIO       ALTITUD                                         INCIDENCIA');
 			writeln('_______________________________________________________________________________');
 			TREULLISTA(pagina);
-			if (pagina=pagines) then writeln('*FINAL RECORREGUT*'); {Si la p…gina actual ‚s la £ltima indica FINAL de RECORREGUT}
+			if (pagina=pagines) then writeln('*FINAL RECORREGUT*'); {Si la pï¿½gina actual ï¿½s la ï¿½ltima indica FINAL de RECORREGUT}
 			writeln('Q.-Sortir      S.-Pag.Seguent     A.-Pag.Anterior.');
 		end;
-	until (opcio='Q') OR (opcio='q'); {Amb Q o q podem sortir del bucle de presentaci¢ de dades}
-	read(opcio);                      {Llegeix el final de l¡nea}
+	until (opcio='Q') OR (opcio='q'); {Amb Q o q podem sortir del bucle de presentaciï¿½ de dades}
+	read(opcio);                      {Llegeix el final de lï¿½nea}
 end;
 
 
@@ -433,7 +435,7 @@ begin
 	temps:=0;
 	pendent:=0;
 
-        {Bucle d'introducci¢ de dades que ‚s repeteix fins que aquestes s¢n correctes
+        {Bucle d'introducciï¿½ de dades que ï¿½s repeteix fins que aquestes sï¿½n correctes
         per velocitat s'accepta qualsevol valor entre 0 i 300 km/h,
         i per transport qualsevol valor entre 1 i 3}
 	while (velocitat<1) OR (velocitat>300) OR (transport<'1') OR (transport>'3') do begin
@@ -464,7 +466,7 @@ begin
                 write(transport);
 		read(res);
 
-                {Detecta d'error en les dades i n'¡nforma a l'usuari}
+                {Detecta d'error en les dades i n'ï¿½nforma a l'usuari}
 		if (velocitat<1) OR (velocitat>300) OR (transport < '1') OR (transport>'3') then begin
 			writeln('La velocitat ha de ser un enter positiu inferior a 300.');
 			writeln('El tipus de transport ha destar entre 1 i 3.');
@@ -482,20 +484,20 @@ begin
 	i:=1;
 	temps:=0;
 	while (i<=99) AND (Dades[i].final=FALSE) do begin
-              {Recorre tots els registres fins que s'acaben o fins que troba l'£ltim km}
+              {Recorre tots els registres fins que s'acaben o fins que troba l'ï¿½ltim km}
 		j:=0;
 		tmpteo:=1/velocitat;    {Calcul del temps teoric del km i}
 		repeat
 {Calcul del pendent}	if (i>1) then pendent:=(Dades[i].altura - Dades[i-1].altura)/1000;
 {Calcul temps corregit}	temps:=temps + tmpteo + (pendent * factor * 15);
 
-{Conversi¢ del temps}	hores:=trunc(temps);
+{Conversiï¿½ del temps}	hores:=trunc(temps);
 {a hores, minuts, i}	minuts:=(temps-hores) * 60;
 {segons}		segons:=(minuts-trunc(minuts)) * 60;
 			minuts:=trunc(minuts);
 			segons:=trunc(segons);
 
-{presentaci¢ de les}	write('km ', i:4);
+{presentaciï¿½ de les}	write('km ', i:4);
 {dades per pantalla}	write(' -');
 			write(hores:3:0,'h');
 			write(minuts:3:0,'min');
@@ -511,7 +513,7 @@ begin
 end;
 
 
-procedure INICIALITZA;  {Precediment encarregat de la inicialitzaci¢ de variables}
+procedure INICIALITZA;  {Precediment encarregat de la inicialitzaciï¿½ de variables}
 var
 	i,j:integer;
 
@@ -552,8 +554,8 @@ begin                   {Programa principal, presenta al menu i accedeix a la fu
 {		while not eoln(input) do read(res);     {Buida buffer de teclat}
                 read(res);
 
-                {Bucle per petici¢ d'opci¢ que es repeteix fins que s'introdueix
-                un opci¢ correcta}
+                {Bucle per peticiï¿½ d'opciï¿½ que es repeteix fins que s'introdueix
+                un opciï¿½ correcta}
 		while (opcio<'0') or (opcio>'6') do begin
 			write('Opcio ha de ser un nombre enter entre 0 i 6.');
 			read(opcio);

@@ -1,7 +1,9 @@
+{ Integration }
+
 program INTEGRA(input,output);
-const a=0;              {[a,b] interval d'integraci¢}
+const a=0;              {[a,b] interval d'integraciï¿½}
       b=0.5;
-      NMAX=600;         {Nombre m xim de subintervala}
+      NMAX=600;         {Nombre mï¿½xim de subintervala}
       Per=0.5;          {Periode T=1/2}
 var
    t,y:array[1..NMAX+1] of real;
@@ -39,7 +41,7 @@ end;
 
 function Simpson(N:integer):real;  {Calcul de la integral per la regla }
 var suma1,suma2:real;              {composta de Simpson amb N subintervals}
-begin                              {Amb la formula de Newton-Cotes tindr¡em}
+begin                              {Amb la formula de Newton-Cotes tindrï¿½em}
 h:=(b-a)/N;                        {un algorisme identic}
 
 t[1]:=a;
